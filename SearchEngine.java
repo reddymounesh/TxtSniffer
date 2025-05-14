@@ -32,6 +32,9 @@ public class SearchEngine {
         ConcurrentMap<File,Integer> resultMap=new ConcurrentHashMap<>();
         ExecutorService executor=Executors.newFixedThreadPool(5);
 
+        long starttime=System.currentTimeMillis();
+
+
         for(File file : textfiles){
             executor.execute(new SearchTask(file,keyword,resultMap,usestemming));
 
@@ -39,13 +42,22 @@ public class SearchEngine {
         executor.shutdown();
         executor.awaitTermination(1,TimeUnit.MINUTES);
 
+        long endtime=System.currentTimeMillis();
+        double timetaken=(endtime-starttime)/1000.0;
+
         List<Map.Entry<File,Integer>> sortedResults=resultMap.entrySet().stream().sorted(Map.Entry.<File,Integer>comparingByValue().reversed()).collect(Collectors.toList());
+
+        int totalMatches=resultMap.values().stream().mapToInt(Integer::intValue).sum();
 
         System.out.println("\n Search Results (ranked):");
         for (Map.Entry<File,Integer> entry:sortedResults){
             System.out.println(entry.getKey().getName()+":"+entry.getValue()+"hits");
 
         }
+        System.out.println("Total files scanned: "+textfiles.size());
+        System.out.println("Total matches found: "+totalMatches);
+        System.out.println("Time taken: "+timetaken+"seconds");
+        
         
 
 
