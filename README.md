@@ -21,13 +21,14 @@ A simple multithreaded Java-based search engine that scans `.txt` files in a dir
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/java-search-engine.git
+   git clone https://github.com/reddymounesh/java-search-engine.git
    cd java-search-engine
 
-## complie the java files
+2. **complie the java files**:
+```bash
 javac SearchEngine.java SearchTask.java PorterStemmer.java
 
-## run the program
+ #run the program
 java SearchEngine
 
 ## Follow the prompts
@@ -38,7 +39,7 @@ Enter the keyword to search for.
 Choose whether to enable stemming or not.
 
 ## Sample Output
-
+```bash
 📁 Enter the directory path: /path/to/text/files
 🔑 Enter the keyword to search: run
 🧠 Enable stemming (yes/no): yes
