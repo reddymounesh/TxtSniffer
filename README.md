@@ -1,4 +1,4 @@
-# Java Search Engine for Local Files
+# Java TxtSniffer for Local Files
 
 A simple multithreaded Java-based search engine that scans `.txt` files in a directory for a keyword. This tool supports:
 - Case-insensitive search
@@ -21,15 +21,15 @@ A simple multithreaded Java-based search engine that scans `.txt` files in a dir
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/reddymounesh/java-search-engine.git
+   git clone https://github.com/reddymounesh/TxtSniffer.git
    cd java-search-engine
 
 2. **complie the java files**:
 ```bash
-javac SearchEngine.java SearchTask.java PorterStemmer.java
+javac TxtSniffer.java SnifferTask.java PorterStemmer.java
 
  #run the program
-java SearchEngine
+java TxtSniffer
 
 ## Follow the prompts
 Enter the directory path where the .txt files are stored.
