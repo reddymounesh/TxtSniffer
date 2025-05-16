@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
-public class SearchEngine {
+public class TxtSniffer {
 
     public static void main(String[] args) throws InterruptedException {
         Scanner sc=new Scanner(System.in);
@@ -36,7 +36,7 @@ public class SearchEngine {
 
 
         for(File file : textfiles){
-            executor.execute(new SearchTask(file,keyword,resultMap,usestemming));
+            executor.execute(new SnifferTask(file,keyword,resultMap,usestemming));
 
         }
         executor.shutdown();

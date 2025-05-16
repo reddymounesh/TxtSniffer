@@ -2,13 +2,13 @@ import java.io.*;
 import java.util.concurrent.ConcurrentMap;
 
 
-public class SearchTask implements Runnable{
+public class SnifferTask implements Runnable{
     private final File file;
     private final String keyword;
     private final ConcurrentMap<File,Integer > resultMap;
     private final boolean usestemming;
 
-    public SearchTask(File file,String keyword,ConcurrentMap<File,Integer> resultMap,boolean usestemming){
+    public SnifferTask(File file,String keyword,ConcurrentMap<File,Integer> resultMap,boolean usestemming){
         this.file=file;
         this.keyword=keyword.toLowerCase();
         this.resultMap=resultMap;
